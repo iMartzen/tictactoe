@@ -1,2 +1,2 @@
 # tictactoe
-tictactoe
+tikketakkietoe / tictactoe
