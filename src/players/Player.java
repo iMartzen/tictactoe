@@ -35,7 +35,6 @@ public class Player {
         System.out.println("Username of player 2 is: " + player2.userName);
 
         Player[] listPlayers = {player1, player2};                                  //Initialize an array
-        scanner.close();
         return listPlayers;                                                         //Returns the list of players.
     }
 
@@ -44,7 +43,6 @@ public class Player {
         Scanner scanner = new Scanner(System.in);
         String num = scanner.nextLine();
         System.out.println("You've picked number: "+num);
-        scanner.close();
         return num;
 }
 

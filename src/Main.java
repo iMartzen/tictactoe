@@ -114,9 +114,12 @@ public class Main {
 
         //Combine winner with name of the player.
         if (winner.get().equalsIgnoreCase("X")) {
-            System.out.println(players[1].getUserName() + " is the winner");
+            System.out.println(players[1].getUserName() + " is the winner. Congratulations!");
         } else if (winner.get().equalsIgnoreCase("O")) {
-            System.out.println(players[0].getUserName() + " is the winner");
+            System.out.println(players[0].getUserName() + " is the winner. Congratulations!");
         }
+
+        //Goodbye message
+        System.out.println("Thanks for playing TicTacToe! Hope to see you again!");
     }
 }
