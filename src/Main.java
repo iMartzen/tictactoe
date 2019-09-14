@@ -33,7 +33,7 @@ public class Main {
         System.out.println("This player starts: " + players[playerBeginner].getUserName());
         printLine();
 
-        //Start of game heder
+        //Start of game header
         System.out.println(PRINT_BEGIN);
         printLine();
 
