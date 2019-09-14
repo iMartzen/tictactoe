@@ -66,23 +66,13 @@ public class Main {
             System.out.println(players[playerBeginner].getUserName() + ", enter your number:");
 
             //Pick a number
-            String number = Player.pickNumber();
-
-            //Check if number is legal
-            boolean checkNumber = Player.checkNumber(number);
-            if (checkNumber){
-                System.out.println("This is not a valid number. Try again.");
-                continue;
-            }
+            int num = Player.pickNumber();
 
             //Check if it a single number between 1-9
-            if (number.length() >= 2 | number.equals("0")){
+            if (num == 0 || num > 9){
                 System.out.println("This number is not on the board. Try again");
                 continue;
             }
-
-            // Parse string to integer
-            int num = Integer.parseInt(number);
 
             //Check if number is already set before
             boolean isNumberSet = board.isNumberSet(num);
