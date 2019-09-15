@@ -1,6 +1,5 @@
 import board.*;
 import players.*;
-import java.util.*;
 import static java.lang.System.exit;
 
 public class Main {
@@ -16,6 +15,7 @@ public class Main {
         
         // Create object players 
         Player player = new Player();
+        
         //Ask for names
         Player[] players = player.callPlayers();
         
