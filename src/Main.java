@@ -1,38 +1,31 @@
 import board.*;
 import players.*;
+import java.util.*;
 import static java.lang.System.exit;
 
 public class Main {
 
-    private static final String PRINT_HEADER = "_ _ _ ____ _    ____ ____ _  _ ____    ___ ____    ___ _ ____ ___ ____ ____ ___ ____ ____ \n" +
-            "| | | |___ |    |    |  | |\\/| |___     |  |  |     |  | |     |  |__| |     |  |  | |___ \n" +
-            "|_|_| |___ |___ |___ |__| |  | |___     |  |__|     |  | |___  |  |  | |___  |  |__| |___ \n" +
+    private static final String PRINT_STARTGAME = "_ _ _ ____ _    ____ ____ _  _ ____    ___ ____    ___ _ ____ ___ ____ ____ ___ ____ ____ \\n" +
+            "| | | |___ |    |    |  | |\\\\/| |___     |  |  |     |  | |     |  |__| |     |  |  | |___ \\n" +
+            "|_|_| |___ |___ |___ |__| |  | |___     |  |__|     |  | |___  |  |  | |___  |  |__| |___ \\n" +
             "                                                                                          ";
-
     public static void main(String[] args) {
-
-        // Create object players 
-        Player player = new Player();
-
-        //Create object board
-        Board board = new Board();
         
         //Start of the game
-        System.out.println(PRINT_HEADER);
+        System.out.println(PRINT_STARTGAME);
         
+        // Create object players 
+        Player player = new Player();
         //Ask for names
         Player[] players = player.callPlayers();
         
         //Choose random a beginner
         int playerBeginner = player.randomBeginner(players);
+        System.out.println("The computer randomly chooses who starts first. This player starts: " + players[playerBeginner].getUserName());
         
-        // int playerBeginner = Player.RandomBeginner.randomBeginner(players);
-        System.out.println("The computer randomly chooses who starts first .....");
-        System.out.println("This player starts: " + players[playerBeginner].getUserName());
-        
-        //Start of game header
-        System.out.println("Let the game begin!");
-        
+        //Creates object board
+        Board board = new Board();
+
         //Draw the board 
         System.out.println(board.drawBoard());
         
@@ -76,7 +69,6 @@ public class Main {
             board.setSign(num, players[playerBeginner].getSign());
         
             //Visual representation
-            System.out.println("----------------------");
             System.out.println(board.drawBoard());
         
             //Change player
@@ -95,9 +87,9 @@ public class Main {
         
         //Combine winner with name of the player.
         if (winner.equals("X")) {
-            System.out.println(players[1].getUserName() + " is the winner. Congratulations!");
+            System.out.println(players[1].getUserName() + "is the winner. Congratulations!");
         } else if (winner.equalsIgnoreCase("O")) {
-            System.out.println(players[0].getUserName() + " is the winner. Congratulations!");
+            System.out.println(players[0].getUserName() + "is the winner. Congratulations!");
         }
         
         //Goodbye message

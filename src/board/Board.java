@@ -7,7 +7,7 @@ public class Board {
 
     // Constructor of Board
     public Board(){
-        System.out.println("This is the playboard. Please enter the number where you want to set your sign.");
+        System.out.println("Let the game begin! This is the playboard. Please enter the number where you want to set your sign.");
     }
 
     // Create object scanner 
