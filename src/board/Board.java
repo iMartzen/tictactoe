@@ -1,22 +1,25 @@
 package board;
 
 import java.util.HashMap;
-import java.util.Optional;
+import java.util.Scanner;
 
 public class Board {
 
-    //This function creates a two dimensional array
-    private final String[][] boardArray = {{"1", "2", "3"}, {"4", "5", "6"}, {"7", "8", "9"}};
-
-    //This function creates a hashmap for mapper number to the boardarray 
-    private final HashMap<Integer, int[]> boardMapper = new HashMap<>();
-
-    //This function will print the board instruction 
-    public static void printboardInstructions() {
-        System.out.println("This is the playboard. Please enter the number where you want to set your sign.");
+    // Constructor of Board
+    public Board(){
+        System.out.println("Let the game begin! This is the playboard. Please enter the number where you want to set your sign.");
     }
 
-    //This function will draw the board 
+    // Create object scanner 
+    Scanner scanner = new Scanner(System.in); 
+
+    //This is the initalization and declaration of two dimensional array, called: boardarray.
+    private final String[][] boardArray = {{"1", "2", "3"}, {"4", "5", "6"}, {"7", "8", "9"}};
+
+    //This is the initalization and declaration of the hasmapper, called: boardmapper.
+    private final HashMap<Integer, int[]> boardMapper = new HashMap<>();
+
+    //This method will draw the board 
     public String drawBoard() {
         fillBoard();
         return "\n" +
@@ -27,7 +30,7 @@ public class Board {
                 " " + boardArray[2][0] + " | " + boardArray[2][1] + " | " + boardArray[2][2] + " \n";
     }
 
-    // This function will map the known values to the board 
+    // This method will map the known values to the board 
     private void fillBoard() {
 
         boardMapper.put(1, new int[]{0, 0});
@@ -42,21 +45,44 @@ public class Board {
 
     }
 
-    //This function will map the number of choice to the board 
+    //This method will map the number of choice to the board 
     public void setSign(int number, String sign) {
         int[] pos = boardMapper.get(number);
         boardArray[pos[0]][pos[1]] = sign;
     }
 
-    //This function will check if the number is already set on the board.
+    //This method will let the player pick a number
+    public int pickNumber(){
+        int num = checkNumber();
+        System.out.println("You've picked number: " + num);
+        return num;
+    }
+
+    //This method will check if it is an integer, otherwise it will throw an error.
+    public int checkNumber(){
+        while(true){
+            try {
+                return scanner.nextInt();
+            } catch (Exception e) {
+                scanner.next();
+                System.out.println("That's not " + "an integer. Try again:");
+            }
+        }
+    }
+
+    //This method will check if the number is already set on the board.
     public boolean isNumberSet(int number) {
         int[] pos = boardMapper.get(number);
         String c = boardArray[pos[0]][pos[1]];
         return c.equalsIgnoreCase("X") || c.equalsIgnoreCase("O");
     }
 
-    //This function will calculate if there is already a winner. This calcultion is based on if there is a row with three "X"'s or "O"'s
-    public Optional<String> getWinner() {
+    //This method will calculate if there is already a winner. This calcultion is based on if there is a row with three "X"'s or "O"'s
+    public String getWinner(String signPlayer1, String signPlayer2) {
+        
+        String winnerPlayer1 = signPlayer1 + signPlayer1 + signPlayer1;
+        String winnerPlayer2 = signPlayer2 + signPlayer2 + signPlayer2;
+
         for (int win = 0; win < 8; win++) {
             String line = null;
             switch (win) {
@@ -85,13 +111,13 @@ public class Board {
                     line = boardArray[0][2] + boardArray[1][1] + boardArray[2][0];
                     break;
             }
-            if (line.equals("XXX")) {
-                return Optional.of("X");
-            } else if (line.equals("OOO")) {
-                return Optional.of("O");
+            if (line.equals(winnerPlayer1)) {
+                return signPlayer1;
+            } else if (line.equals(winnerPlayer2)){
+                return signPlayer2;
             }
         }
-        return Optional.empty();
+        return "";
     }
 }
 
