@@ -78,7 +78,11 @@ public class Board {
     }
 
     //This method will calculate if there is already a winner. This calcultion is based on if there is a row with three "X"'s or "O"'s
-    public String getWinner() {
+    public String getWinner(String signPlayer1, String signPlayer2) {
+        
+        String winnerPlayer1 = signPlayer1 + signPlayer1 + signPlayer1;
+        String winnerPlayer2 = signPlayer2 + signPlayer2 + signPlayer2;
+
         for (int win = 0; win < 8; win++) {
             String line = null;
             switch (win) {
@@ -107,10 +111,10 @@ public class Board {
                     line = boardArray[0][2] + boardArray[1][1] + boardArray[2][0];
                     break;
             }
-            if (line.equals("XXX")) {
-                return "X";
-            } else if (line.equals("OOO")) {
-                return "O";
+            if (line.equals(winnerPlayer1)) {
+                return signPlayer1;
+            } else if (line.equals(winnerPlayer2)){
+                return signPlayer2;
             }
         }
         return "";

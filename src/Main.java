@@ -63,7 +63,7 @@ public class Main {
         
             //Let player set a number
             System.out.println(players[playerBeginner].getUserName() + ", enter your number:");
-        
+
             //Pick a number
             int num = board.pickNumber();
         
@@ -94,17 +94,17 @@ public class Main {
             }
         
             //Check if there is a winner
-            winner = board.getWinner();
+            winner = board.getWinner(player1.getSign(), player2.getSign());
         
             //Counter
             counter++;
         }
         
         //Combine winner with name of the player.
-        if (winner.equals("X")) {
-            System.out.println(players[1].getUserName() + "is the winner. Congratulations!");
-        } else if (winner.equalsIgnoreCase("O")) {
-            System.out.println(players[0].getUserName() + "is the winner. Congratulations!");
+        if (winner.equals(signPlayer1)) {
+            System.out.println(players[1].getUserName() + " is the winner. Congratulations!");
+        } else if (winner.equalsIgnoreCase(signPlayer2)) {
+            System.out.println(players[0].getUserName() + " is the winner. Congratulations!");
         }
         
         //Goodbye message
