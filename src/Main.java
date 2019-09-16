@@ -5,6 +5,16 @@ import static java.lang.System.exit;
 
 public class Main {
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
     private static final String PRINT_HEADER = "_ _ _ ____ _    ____ ____ _  _ ____    ___ ____    ___ _ ____ ___ ____ ____ ___ ____ ____ \n" +
             "| | | |___ |    |    |  | |\\/| |___     |  |  |     |  | |     |  |__| |     |  |  | |___ \n" +
             "|_|_| |___ |___ |___ |__| |  | |___     |  |__|     |  | |___  |  |  | |___  |  |__| |___ \n" +
@@ -18,27 +28,26 @@ public class Main {
         System.out.println(PRINT_HEADER);
         
         // Create object player1         
-        System.out.println("Please enter username of player 1:");   
+        System.out.println(ANSI_GREEN + "Please enter username of player 1:" + ANSI_RESET);   
         String usernamePlayer1 = scanner.nextLine();
-        System.out.println("What sign would you like to play with?");
+        System.out.println(ANSI_GREEN + "What sign would you like to play with?" + ANSI_RESET);
         String signPlayer1 = scanner.nextLine();
         Player player1 = new Player(usernamePlayer1, signPlayer1);
-        System.out.println("Username of player 1 is: " + player1.getUserName() + " and will play with this sign: " + player1.getSign()); 
+        System.out.println(ANSI_GREEN + "Username of player 1 is: " + player1.getUserName() + " and will play with this sign: " + player1.getSign() + ANSI_RESET); 
 
         //Create object player2
-        System.out.println("Please enter username of player 2:");
+        System.out.println(ANSI_GREEN + "Please enter username of player 2:" + ANSI_RESET);
         String usernamePlayer2 = scanner.nextLine();
-        System.out.println("What sign would you like to play with?");
+        System.out.println(ANSI_GREEN + "What sign would you like to play with?" + ANSI_RESET);
         String signPlayer2 = scanner.nextLine();
         Player player2 = new Player(usernamePlayer2, signPlayer2);
-        System.out.println("Username of player 2 is: " + player2.getUserName()+ " and will play with this sign: " + player2.getSign());
+        System.out.println(ANSI_GREEN + "Username of player 2 is: " + player2.getUserName()+ " and will play with this sign: " + player2.getSign() + ANSI_RESET);
 
         //Choose random a beginner
-        Player player = new Player();
         Player[] players = {player1, player2};
-        int playerBeginner = player.randomBeginner(players);
+        int playerBeginner = player1.randomBeginner(players);
         System.out.println("--------------------------------");
-        System.out.println("The computer randomly chooses who starts first. This player starts: " + players[playerBeginner].getUserName());
+        System.out.println(ANSI_GREEN + "The computer randomly chooses who starts first. This player starts: " + players[playerBeginner].getUserName() + ANSI_RESET);
         
         //Creates object board
         Board board = new Board();
@@ -109,5 +118,7 @@ public class Main {
         
         //Goodbye message
         System.out.println("Thanks for playing TicTacToe! Hope to see you again!");
+        System.out.println("");
+        System.out.println("");
     }
 }
