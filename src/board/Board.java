@@ -51,25 +51,6 @@ public class Board {
         boardArray[pos[0]][pos[1]] = sign;
     }
 
-    //This method will let the player pick a number
-    public int pickNumber(){
-        int num = checkNumber();
-        System.out.println("You've picked number: " + num);
-        return num;
-    }
-
-    //This method will check if it is an integer, otherwise it will throw an error.
-    public int checkNumber(){
-        while(true){
-            try {
-                return scanner.nextInt();
-            } catch (Exception e) {
-                scanner.next();
-                System.out.println("That's not " + "an integer. Try again:");
-            }
-        }
-    }
-
     //This method will check if the number is already set on the board.
     public boolean isNumberSet(int number) {
         int[] pos = boardMapper.get(number);

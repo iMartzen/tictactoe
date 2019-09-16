@@ -74,7 +74,7 @@ public class Main {
             System.out.println(players[playerBeginner].getUserName() + ", enter your number:");
 
             //Pick a number
-            int num = board.pickNumber();
+            int num = pickNumber();
         
             //Check if it a single number between 1-9
             if (num <= 0 || num > 9){
@@ -111,14 +111,33 @@ public class Main {
         
         //Combine winner with name of the player.
         if (winner.equals(signPlayer1)) {
-            System.out.println(players[1].getUserName() + " is the winner. Congratulations!");
+            System.out.println(players[0].getUserName() + "is the winner. Congratulations!");
         } else if (winner.equalsIgnoreCase(signPlayer2)) {
-            System.out.println(players[0].getUserName() + " is the winner. Congratulations!");
+            System.out.println(players[1].getUserName() + "is the winner. Congratulations!");
         }
         
         //Goodbye message
         System.out.println("Thanks for playing TicTacToe! Hope to see you again!");
         System.out.println("");
         System.out.println("");
+    }
+
+    //This method will let the player pick a number
+    static public int pickNumber(){
+        int num = checkNumber();
+        System.out.println("You've picked number: " + num);
+        return num;
+    }
+
+    //This method will check if it is an integer, otherwise it will throw an error.
+    static public int checkNumber(){
+        while(true){
+            try {
+                return scanner.nextInt();
+            } catch (Exception e) {
+                scanner.next();
+                System.out.println("That's not " + "an integer. Try again:");
+            }
+        }
     }
 }
