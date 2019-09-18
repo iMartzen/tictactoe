@@ -4,7 +4,8 @@ tikketakkietoe / tictactoe
 ## Indeling 
 
 - Main 
-    -
+    - pickNumber
+    - checkNumber
 - Players 
     - callPlayers
     - randomBeginner 
@@ -12,8 +13,6 @@ tikketakkietoe / tictactoe
     - drawBoard
     - fillBoard
     - setSign
-    - pickNumber
-    - checkNumber
     - isNumberSet
     - getWinner
 
@@ -29,15 +28,14 @@ tikketakkietoe / tictactoe
 8. ~~Wat nu als het gelijkspel is?~~
 9. ~~de class Person, bevat nog al wat static methods, probeer eens meer t voordeel van classes / objecten te bedenken en je hele proggie op te zetten zonder statics (muv enkele methods in de Main class)~~
 10. ~~Overall genomen, kun je eens nadenken over een refactor, waarbij je meer eigenschappen / gedrag wat bij elkaar hoort in de bij behorende class zet.~~
-11. de scanner(s) uit de classes Board en Player halen en main er verantwoordelijk voor maken
+11. ~~de scanner(s) uit de classes Board en Player halen en main er verantwoordelijk voor maken~~
 12. ~~Je kan bijvoorbeeld ook voor het teken (sign) een Enum gebruiken, en dan in de Persoon class  een eigenschap (flied) opnemen hier voor, maw Persoon heeft een naam en het teken (als enum) en eventueel ook een field of ie gewonnen heeft.~~
 13. ~~Tis een beetje van wat hoor waarbij en wat hou ik waarbij?~~
 14. Een Board heeft speler toch? Why not binnen de class Board gebruik maken van de class Player?
-15. Nice 2 haves ... hoeveel beurten waren er nodig tot dat er een winner was?
 
 ## More advanced
 
-- Main class
+- Main class 
 - Game class
 - Board class
 - Player class

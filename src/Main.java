@@ -123,14 +123,14 @@ public class Main {
     }
 
     //This method will let the player pick a number
-    static public int pickNumber(){
+    static private int pickNumber(){
         int num = checkNumber();
         System.out.println("You've picked number: " + num);
         return num;
     }
 
     //This method will check if it is an integer, otherwise it will throw an error.
-    static public int checkNumber(){
+    static private int checkNumber(){
         while(true){
             try {
                 return scanner.nextInt();
